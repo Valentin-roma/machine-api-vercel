@@ -41,4 +41,10 @@ export default async function handler(req, res) {
 
   const result = await updateResponse.json();
   res.status(200).json(result);
+  console.log("Résultat de GitHub :", result);
+  if (!updateResponse.ok) {
+  return res.status(updateResponse.status).json({ error: result });
+}
+
+return res.status(200).json({ message: "Mise à jour réussie", githubResult: result });
 }
