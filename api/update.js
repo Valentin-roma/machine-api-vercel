@@ -1,5 +1,12 @@
-// api/update.js
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end(); 
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Méthode non autorisée' });
   }
@@ -11,7 +18,6 @@ export default async function handler(req, res) {
   const GITHUB_REPO = "inventaire-machines";
   const FILE_PATH = "data/machines.json";
 
-  // Récupère le SHA actuel du fichier
   const getResponse = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${FILE_PATH}`, {
     headers: { Authorization: `token ${GITHUB_TOKEN}` }
   });
