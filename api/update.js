@@ -7,8 +7,8 @@ export default async function handler(req, res) {
   const { contentJSON } = req.body;
 
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  const GITHUB_USER = "TON_NOM_UTILISATEUR_GITHUB";
-  const GITHUB_REPO = "NOM_DU_DEPOT_CIBLE";
+  const GITHUB_USER = "Valentin-roma";
+  const GITHUB_REPO = "inventaire-machines";
   const FILE_PATH = "data/machines.json";
 
   // Récupère le SHA actuel du fichier
