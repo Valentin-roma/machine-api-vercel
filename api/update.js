@@ -8,9 +8,9 @@ export default async function handler(req, res) {
   const { contentJSON } = req.body;
 
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  const GITHUB_USER = "Valentin-roma"; // ✅ ton nom GitHub
-  const GITHUB_REPO = "inventaire-machines"; // ✅ ton dépôt cible
-  const FILE_PATH = "data/machines.json"; // ✅ chemin correct
+  const GITHUB_USER = "Valentin-roma";
+  const GITHUB_REPO = "inventaire-machines"; 
+  const FILE_PATH = "data/machines.json";
 
   try {
     const getResponse = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${FILE_PATH}`, {
